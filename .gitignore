@@ -21,3 +21,16 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# IntelliJ
+# We want some of the .idea configuration. 
+# Namely, the JDK version so students don't have to manually set the SDK. 
+# We don't want source control configuration.
+**/.idea/vcs.xml
+out/
+
+# Maven
+target/
+
+# macOS
+.DS_Store

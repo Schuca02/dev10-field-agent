@@ -22,9 +22,6 @@ public class AliasService {
         return repository.findAll();
     }
 
-    public List<Alias> findByAgentId(int agentId) {
-        return repository.findByAgentId(agentId);
-    }
 
     public Result<Alias> add(Alias alias) {
         Result<Alias> result = validate(alias);

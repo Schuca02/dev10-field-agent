@@ -30,6 +30,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleException(Exception ex){
 
-        return new ResponseEntity<ErrorResponse>(new ErrorResponse("I can't be sorry"), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse("I can't be less sorry"), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

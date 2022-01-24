@@ -3,8 +3,6 @@ package learn.field_agent.domain;
 
 import learn.field_agent.models.Alias;
 import learn.field_agent.data.AliasRepository;
-import learn.field_agent.models.Location;
-import learn.field_agent.models.SecurityClearance;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -39,7 +37,7 @@ public class AliasServiceTest {
     void shouldNotAddNoName() {
         Alias alias = makeAlias();
         alias.setAliasId(0);
-        alias.setAliasName(" ");
+        alias.setName(" ");
 
         Result<Alias> result = service.add(alias);
         assertEquals(ResultType.INVALID, result.getType());
@@ -76,7 +74,7 @@ public class AliasServiceTest {
 
         alias = makeAlias();
         alias.setAliasId(0);
-        alias.setAliasName(" ");
+        alias.setName(" ");
 
         Result<Alias> result = service.update(alias);
         assertEquals(ResultType.INVALID, result.getType());
@@ -91,8 +89,8 @@ public class AliasServiceTest {
 
     Alias makeAlias() {
         Alias alias = new Alias();
-        alias.setAliasName("006");
-        alias.setAliasPersona("Almost 007 but not quite");
+        alias.setName("006");
+        alias.setPersona("Almost 007 but not quite");
         alias.setAgentId(1);
         return alias;
     }

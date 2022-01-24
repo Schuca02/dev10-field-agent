@@ -1,9 +1,7 @@
 package learn.field_agent.domain;
 
 import learn.field_agent.data.AliasRepository;
-import learn.field_agent.models.Agency;
 import learn.field_agent.models.Alias;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -72,13 +70,13 @@ public class AliasService {
             return result;
         }
 
-        if (Validations.isNullOrBlank(alias.getAliasName())) {
+        if (Validations.isNullOrBlank(alias.getName())) {
             result.addMessage("alias needs a name", ResultType.INVALID);
             return result;
         }
 
-        if (Validations.isNullOrBlank(alias.getAliasPersona()) &&
-                repository.findAll().stream().anyMatch(i -> Objects.equals(i.getAliasName(), alias.getAliasName()))) {
+        if (Validations.isNullOrBlank(alias.getPersona()) &&
+                repository.findAll().stream().anyMatch(i -> Objects.equals(i.getName(), alias.getName()))) {
             result.addMessage("alias by that name needs a persona", ResultType.INVALID);
             return result;
         }

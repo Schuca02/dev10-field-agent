@@ -46,8 +46,8 @@ public class AliasJdbcTemplateRepository implements AliasRepository{
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, alias.getAliasName());
-            ps.setString(2, alias.getAliasPersona());
+            ps.setString(1, alias.getName());
+            ps.setString(2, alias.getPersona());
             ps.setInt(3, alias.getAgentId());
             return ps;
         }, keyHolder);
@@ -68,8 +68,8 @@ public class AliasJdbcTemplateRepository implements AliasRepository{
                 + "where alias_id = ?;";
 
         return jdbcTemplate.update(sql,
-                alias.getAliasName(),
-                alias.getAliasPersona(),
+                alias.getName(),
+                alias.getPersona(),
                 alias.getAgentId(),
                 alias.getAliasId()) > 0;
     }

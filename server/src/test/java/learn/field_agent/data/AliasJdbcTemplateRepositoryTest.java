@@ -2,14 +2,12 @@ package learn.field_agent.data;
 
 
 import learn.field_agent.models.Alias;
-import learn.field_agent.models.SecurityClearance;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
@@ -44,7 +42,7 @@ public class AliasJdbcTemplateRepositoryTest {
     void shouldUpdate(){
         Alias alias = new Alias();
         alias.setAliasId(2);
-        alias.setAliasName("Mr. Bean");
+        alias.setName("Mr. Bean");
         alias.setAgentId(2);
 
         assertTrue(repository.update(alias));
@@ -53,7 +51,7 @@ public class AliasJdbcTemplateRepositoryTest {
     @Test
     void shouldAdd(){
         Alias alias = new Alias();
-        alias.setAliasName("Test Alias");
+        alias.setName("Test Alias");
         alias.setAgentId(3);
         Alias actual = repository.add(alias);
         assertNotNull(actual);

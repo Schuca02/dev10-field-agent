@@ -13,6 +13,17 @@ public class Agent {
     private LocalDate dob;
     private int heightInInches;
     private List<AgentAgency> agencies = new ArrayList<>();
+    private List<Alias> aliases;
+
+
+    public List<Alias> getAliases() {
+        return aliases;
+    }
+
+    public void setAliases(List<Alias> aliases) {
+        this.aliases = aliases;
+    }
+
 
     public int getAgentId() {
         return agentId;

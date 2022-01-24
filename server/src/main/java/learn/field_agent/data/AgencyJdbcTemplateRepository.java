@@ -76,7 +76,7 @@ public class AgencyJdbcTemplateRepository implements AgencyRepository {
         final String sql = "update agency set "
                 + "short_name = ?, "
                 + "long_name = ? "
-                + "where agency_id = ?";
+                + "where agency_id = ?;";
 
         return jdbcTemplate.update(sql, agency.getShortName(), agency.getLongName(), agency.getAgencyId()) > 0;
     }
